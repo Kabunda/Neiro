@@ -2,8 +2,6 @@
 #define MYNEURO_H
 #include <iostream>
 #include <math.h>
-//#include <QtGlobal>
-//#include <QDedug>
 
 #define learnRate 0.1
 #define randWeight (( ((float)rand() / (float)RAND_MAX) - 0.5)* pow(out,-0.5))
@@ -111,7 +109,7 @@ public:
     void printArray(float* arr, int s);
 
 private:
-    struct nnLay* list;
+    nnLay* list;
     int inputNeurons;
     int outputNeurons;
     int nlCount;

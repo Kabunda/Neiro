@@ -1,8 +1,8 @@
 #include "myneuro.h"
-//#include <QDebug>
 
 myNeuro::myNeuro()
 {
+    /*
     //--------многослойный
     inputNeurons = 100;
     outputNeurons = 2;
@@ -16,18 +16,18 @@ myNeuro::myNeuro()
     list[1].setIO(20, 6);
     list[2].setIO(6, 3);
     list[3].setIO(3, 2);
-
+    */
     //--------однослойный---------
-//    inputNeurons = 100;
-//    outputNeurons =2;
-//    nlCount = 2;
-//    list = (nnLay*) malloc((nlCount)*sizeof(nnLay));
+    inputNeurons = 2;
+    outputNeurons = 1;
+    nlCount = 2;
+    list = (nnLay*) malloc((nlCount)*sizeof(nnLay));
 
-//    inputs = (float*) malloc((inputNeurons)*sizeof(float));
-//    targets = (float*) malloc((outputNeurons)*sizeof(float));
+    inputs = (float*) malloc((inputNeurons)*sizeof(float));
+    targets = (float*) malloc((outputNeurons)*sizeof(float));
 
-//    list[0].setIO(100,10);
-//    list[1].setIO(10,2);
+    list[0].setIO(2,2);
+    list[1].setIO(2,1);
 
 }
 
@@ -39,11 +39,12 @@ void myNeuro::feedForwarding(bool ok)
 
     if (!ok)
     {
-        std::cout << "Feed Forward: " << std::endl;
+        std::cout << "\t~\t";
         for (int out = 0; out < outputNeurons; out++)
         {
-            std::cout << list[nlCount - 1].hidden[out] << std::endl;
+            std::cout << list[nlCount - 1].hidden[out] << '\t';
         }
+        std::cout << std::endl;
         return;
     }
     else
