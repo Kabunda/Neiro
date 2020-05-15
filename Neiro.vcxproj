@@ -147,7 +147,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Neiro.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="myneuro.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="myneuro.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
