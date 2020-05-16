@@ -15,8 +15,8 @@ public:
     void backPropagate();
     void train(float* in, float* targ);
     void query(float* in);
-    void printArray(float* arr, int s);
     void printLay(int number);
+    void printInfo();
 private:
     nnLay* list;
     int inputNeurons;

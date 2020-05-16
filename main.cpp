@@ -31,8 +31,10 @@ int main(int argc, char* argv[])
     float output0[1] = { 0 };
     float output1[1] = { 1 };
 
+    //bb.printInfo();
+
     int i = 0;
-    while (i < 1000000)
+    while (i < 100000)
     {
         bb.train(input1, output0);
         bb.train(input2, output1);
@@ -41,8 +43,7 @@ int main(int argc, char* argv[])
         i++;
     }
 
-    bb.printLay(0);
-    bb.printLay(1);
+    bb.printInfo();
     std::cout << "_RESULT_XOR_" << std::endl;
     std::cout << "_0_0_";
     bb.query(input1);
