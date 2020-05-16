@@ -21,9 +21,15 @@
     <ClCompile Include="myneuro.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="nnLay1.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="myneuro.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="nnLay1.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

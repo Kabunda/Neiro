@@ -21,14 +21,25 @@ myNeuro::myNeuro()
     inputNeurons = 2;
     outputNeurons = 1;
     nlCount = 2;
+    /*
     list = (nnLay*) malloc((nlCount)*sizeof(nnLay));
-
     inputs = (float*) malloc((inputNeurons)*sizeof(float));
     targets = (float*) malloc((outputNeurons)*sizeof(float));
+    */
+    list = new nnLay[nlCount];
+    inputs = new float[inputNeurons];
+    targets = new float[outputNeurons];
 
     list[0].setIO(2,2);
     list[1].setIO(2,1);
 
+}
+myNeuro::~myNeuro()
+{
+    //delete targets;
+    //delete inputs;
+    //delete list;
+    std::cout << "Neuro_Delete\n";
 }
 
 void myNeuro::feedForwarding(bool ok)
@@ -49,7 +60,8 @@ void myNeuro::feedForwarding(bool ok)
     }
     else
     {
-        // printArray(list[3].getErrors(),list[3].getOutCount());
+        //printArray(list[0].getErrors(),list[0].getOutCount());
+        //printArray(list[1].getErrors(), list[1].getOutCount());
         backPropagate();
     }
 }
@@ -83,9 +95,9 @@ void myNeuro::query(float* in)
 
 void myNeuro::printArray(float* arr, int s)
 {
-    std::cout << "__";
+    std::cout << "_\n";
     for (int inp = 0; inp < s; inp++)
     {
-        std::cout << arr[inp];
+        std::cout << arr[inp]<<"\t";
     }
 }

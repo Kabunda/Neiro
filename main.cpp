@@ -2,8 +2,8 @@
 
 int main(int argc, char* argv[])
 {
-    myNeuro* bb = new myNeuro();
-
+    //myNeuro* bb = new myNeuro();
+    myNeuro bb;
     //----------------------------------INPUTS----GENERATOR-------------
     //qsrand((QTime::currentTime().second()));
     /*float* abc = new float[100];
@@ -34,22 +34,22 @@ int main(int argc, char* argv[])
     int i = 0;
     while (i < 1000000)
     {
-        bb->train(input1, output0);
-        bb->train(input2, output1);
-        bb->train(input3, output1);
-        bb->train(input4, output0);
+        bb.train(input1, output0);
+        bb.train(input2, output1);
+        bb.train(input3, output1);
+        bb.train(input4, output0);
         i++;
     }
 
     std::cout << "_RESULT_XOR_" << std::endl;
     std::cout << "_0_0_";
-    bb->query(input1);
+    bb.query(input1);
     std::cout << "_0_1_";
-    bb->query(input2);
+    bb.query(input2);
     std::cout << "_1_0_";
-    bb->query(input3);
+    bb.query(input3);
     std::cout << "_1_1_";
-    bb->query(input4);
+    bb.query(input4);
 
     return 0;
 }
