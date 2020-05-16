@@ -41,6 +41,8 @@ int main(int argc, char* argv[])
         i++;
     }
 
+    bb.printLay(0);
+    bb.printLay(1);
     std::cout << "_RESULT_XOR_" << std::endl;
     std::cout << "_0_0_";
     bb.query(input1);

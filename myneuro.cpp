@@ -45,6 +45,7 @@ myNeuro::~myNeuro()
 void myNeuro::feedForwarding(bool ok)
 {
     list[0].makeHidden(inputs);
+    //printLay(list, 0);
     for (int i = 1; i < nlCount; i++)
         list[i].makeHidden(list[i - 1].getHidden());
 
@@ -60,8 +61,6 @@ void myNeuro::feedForwarding(bool ok)
     }
     else
     {
-        //printArray(list[0].getErrors(),list[0].getOutCount());
-        //printArray(list[1].getErrors(), list[1].getOutCount());
         backPropagate();
     }
 }
@@ -99,5 +98,22 @@ void myNeuro::printArray(float* arr, int s)
     for (int inp = 0; inp < s; inp++)
     {
         std::cout << arr[inp]<<"\t";
+    }
+}
+void myNeuro::printLay(int number) 
+{
+    COORD position;										// Объявление необходимой структуры
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);	// Получение дескриптора устройства стандартного вывода
+    position.X = 0;									// Установка координаты X
+    position.Y = number*5;									// Установка координаты Y
+    SetConsoleCursorPosition(hConsole, position);		// Перемещение каретки по заданным координатам
+
+    std::cout << "Matrix Lay # " << number << std::endl;
+    for (int i = 0; i < list[number].getInCount(); i++) {
+        for (int ou = 0; ou < list[number].getOutCount(); ou++) {
+            printf(" %.3G  ", list[number].getMatrix()[i][ou]);
+            //std::cout << list[number].getMatrix()[i][ou] << '\t';
+        }
+        std::cout << std::endl;
     }
 }

@@ -35,6 +35,8 @@ void nnLay::setIO(int inputs, int outputs)
     hidden = new float[out];        //массив выходов
     matrix = new float*[in + 1];    //массив весов 2D
 
+    errors = new float[out];        //массив ошибок
+
     for (int inp = 0; inp < in + 1; inp++)
     {
         matrix[inp] = new float[out];
@@ -65,7 +67,7 @@ void nnLay::makeHidden(float* inputs)
         {
             tmpS += inputs[inp] * matrix[inp][hid];
         }
-        tmpS += matrix[in][hid];
+        tmpS += matrix[in][hid];        //нейрон смещения (bias)
         hidden[hid] = sigmoida(tmpS);
     }
 }
@@ -75,7 +77,6 @@ float* nnLay::getHidden()
 }
 void nnLay::calcOutError(float* targets)
 {
-    errors = (float*)malloc((out) * sizeof(float));
     for (int ou = 0; ou < out; ou++)
     {
         errors[ou] = (targets[ou] - hidden[ou]) * sigmoidasDerivate(hidden[ou]);
@@ -83,7 +84,6 @@ void nnLay::calcOutError(float* targets)
 }
 void nnLay::calcHidError(float* targets, float** outWeights, int inS, int outS)
 {
-    errors = (float*)malloc((inS) * sizeof(float));
     for (int hid = 0; hid < inS; hid++)
     {
         errors[hid] = 0.0;
